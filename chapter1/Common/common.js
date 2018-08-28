@@ -1,3 +1,11 @@
+var User = Backbone.Model.extend({
+	defaults: {
+		name: 'Yusuf',
+		surname:'Unlu',
+		adress:'Istanbul'
+	}
+});
+
 // Parent view which has the render function
 var BaseView = Backbone.View.extend({
 	render: function () {
@@ -10,8 +18,6 @@ var BaseView = Backbone.View.extend({
 	}
 });
 
-// A simpler view class
-var UserItemView = BaseView.extend({
-	tagName: 'div',
-	template: '<span><%= name %></span>'
+var Users = Backbone.Collection.extend({
+	model:User
 });
