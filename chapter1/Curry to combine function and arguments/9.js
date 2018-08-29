@@ -23,23 +23,6 @@ var DraggableMixin = (function(){
 	};
 })();
 
-var User = Backbone.Model.extend({
-	defaults: {
-		name: 'John Doe'
-	}
-});
-
-// Parent view which has the render function
-var BaseView = Backbone.View.extend({
-	render: function () {
-		var tpl = _.template(this.template),
-		data = (this.model) ? this.model.toJSON() : {},
-		html = tpl(data);
-
-		this.$el.html(html);
-		return this;
-	}
-});
 
 // UserItemView already extends BaseView
 var UserItemView = BaseView.extend({
@@ -49,10 +32,12 @@ var UserItemView = BaseView.extend({
 
 // DraggableMixin method is called passing the config object 
 DraggableMixin.call(UserItemView.prototype, {
-	foo : 'bar'
+	foo : "config example"
 });
-// SortableMixin.call(UserItemView.prototype);
 
-new UserItemView({
+// SortableMixin.call(UserItemView.prototype);
+itemView = new UserItemView({
 	model : new User()
-}).render().startDrag();
+}).render();
+
+itemView.startDrag();
