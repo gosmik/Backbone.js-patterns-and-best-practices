@@ -21,7 +21,7 @@ var DraggableMixin = (function(){
 
 		return this;
 	};
-})();
+})(); 
 
 
 // UserItemView already extends BaseView
